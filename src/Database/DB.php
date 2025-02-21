@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Database;
+namespace Blog\Database;
 class DB
 {
     

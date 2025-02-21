@@ -1,6 +1,9 @@
 <?php
 
-namespace Src\Http;
+namespace Blog\Http;
+
+use Blog\Http\Request;
+use Blog\Http\Response;
 
 class Route
 {
@@ -15,19 +18,19 @@ class Route
         $this->response = $response;
     }
   
-    protected static function get($route, $action)
+    public static function get($route, $action)
     {
         self::$routes['get'][$route] = $action;
     }
-    protected static function post($route, $action)
+    public static function post($route, $action)
     {
         self::$routes['post'][$route] = $action;
     }
 
     public function resolve()
     {
-        $path = $this->request->path;
-        $method = $this->request->method;
+        $path = $this->request->path();
+        $method = $this->request->method();
         $action = self::$routes[$method][$path] ?? false;
 
         if(!array_key_exists($path, self::$routes[$method]))
