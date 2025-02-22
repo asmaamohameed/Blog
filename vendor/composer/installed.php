@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'blog/asmaa',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1fddf3f9afecf7712e842b2bd230eedc9c1f9996',
+        'reference' => '5114bbdc41bd6a07f2b846776c0bcd8d1cc7a9b4',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
+        'blog/asmaa' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1fddf3f9afecf7712e842b2bd230eedc9c1f9996',
+            'reference' => '5114bbdc41bd6a07f2b846776c0bcd8d1cc7a9b4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
