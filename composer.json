@@ -1,0 +1,15 @@
+{
+    "name": "asmaa/blog",
+    "autoload": {
+        "psr-4": {
+            "Blog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "asmaamohameed",
+            "email": "asmaa.mo104@gmail.com"
+        }
+    ],
+    "require": {}
+}
