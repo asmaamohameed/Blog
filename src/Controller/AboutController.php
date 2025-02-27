@@ -2,11 +2,11 @@
 
 namespace Blog\Controller;
 
-class HomeController{
+class AboutController{
 
     public function index()
     {
-        view('Home', []);
+        view('About', []);
 
     }
 }
