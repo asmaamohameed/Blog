@@ -2,17 +2,11 @@
 
 
 require_once '../vendor/autoload.php';
+require_once '../Routes/web.php';
 
 use Blog\Application;
 use Blog\Http\Route;
-use Blog\Controller\HomeController;
-use Blog\Controller\AboutController;
-use Blog\Controller\BlogController;
 
-$route = new Route;
+$app = new Application();
 
-Route::get('/', HomeController::class, 'index');
-Route::get('/About', AboutController::class, 'index');
-Route::get('/Blogs', BlogController::class, 'index');
-
-$route->resolve();
+$app->run();

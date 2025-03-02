@@ -1,6 +1,7 @@
 <?php
 
 namespace Blog\Http;
+
 class Request
 {
     public function method()
@@ -10,6 +11,5 @@ class Request
     public function path()
     {
         return $_SERVER["REQUEST_URI"] ?? '/';
-
     }
 }
