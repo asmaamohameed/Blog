@@ -2,7 +2,7 @@
 
 namespace Blog\Http;
 
-require_once '../src/Helpers/helper.php';
+require_once '../src/Support/helper.php';
 
 class Route
 {
@@ -58,7 +58,7 @@ class Route
 
             $controllerInstance->$action();
         } else {
-            throw new \Exception("No Route found");
-        }
+            $this->response->statusCode(404);
+            view('errors/404');}
     }
 }

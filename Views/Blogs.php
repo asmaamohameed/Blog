@@ -1,4 +1,4 @@
-<?php require_once 'partials/Navbar.php'?>
+<?php require 'partials/Navbar.php'?>
 
 <div class="bg-white py-10 sm:py-10">
   <div class="mx-auto max-w-7xl px-2 lg:px-8">
@@ -13,7 +13,7 @@
         </div>
         <div class="group relative">
           <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-            <a href="#">
+            <a href="/Blogs/Blog">
               <span class="absolute inset-0"></span>
               Boost your conversion rate
             </a>
@@ -38,3 +38,4 @@
     </div>
   </div>
 </div>
+<?php require 'partials/Footer.php'?>

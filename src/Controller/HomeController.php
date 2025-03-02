@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 namespace Blog\Controller;
 
-class HomeController{
+class HomeController
+{
 
     public function index()
     {

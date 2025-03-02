@@ -9,4 +9,10 @@ class BlogController{
         view('Blogs', []);
 
     }
+    public function view()
+    {
+        view('Blogs/Blog', []);
+
+    }
+
 }
