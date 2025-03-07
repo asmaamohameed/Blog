@@ -10,6 +10,8 @@ class Request
     }
     public function path()
     {
-        return $_SERVER["REQUEST_URI"] ?? '/';
+        $path = $_SERVER['REQUEST_URI'] ?? '/';
+
+        return str_contains($path, '?') ? explode('?', $path)[0]  : $path;
     }
 }

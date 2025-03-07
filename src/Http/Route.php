@@ -34,13 +34,16 @@ class Route
         self::route($path, $controller, $action, 'POST');
     }
 
+    public static function delete($path, $controller, $action)
+    {
+        self::route($path, $controller, $action, 'DELETE');
+    }
+
     public function resolve()
     {
 
         $URI = $this->request->path();
         $method = $this->request->method();
-
-        // dd(self::$routes);
 
         if (isset(self::$routes[$method][$URI])) {
             $controller = self::$routes[$method][$URI]['controller'];
@@ -59,6 +62,6 @@ class Route
             $controllerInstance->$action();
         } else {
             $this->response->statusCode(404);
-            view('errors/404');}
+            view(view: 'errors/404');}
     }
 }
