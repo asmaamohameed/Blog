@@ -22,7 +22,7 @@
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a href="/Blogs/EditBlog?id=<?= $blog['id'] ?>">
+              <a href="/Blogs/EditBlog?id=<?= $blog['id']; ?>">
                 <span class="absolute inset-0"></span>
                 <?= $blog['title'] ?>
               </a>

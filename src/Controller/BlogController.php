@@ -4,6 +4,7 @@ namespace Blog\Controller;
 
 use Blog\Model\Blogs;
 use Blog\Http\Response;
+
 class BlogController
 {
     private $Blogs;
@@ -23,7 +24,7 @@ class BlogController
     }
     public function edit()
     {
-        $blog = $this->Blogs->getOne($_GET['id']);
+        $blog = $this->Blogs->getOne();
 
         view('Blogs/EditBlog', ['blog' => $blog]);
     }
@@ -42,5 +43,26 @@ class BlogController
 
         Response::redirect('/Blogs');
     }
-    
+    public function delete()
+    {
+        $this->Blogs->delete();
+
+        Response::redirect('/Blogs');
+    }
+    public function update()
+    {
+        $data = [
+            'id' => $_POST['id'],
+            'title' => $_POST['title'],
+            'category' => $_POST['category'],
+            'article' => $_POST['article'],
+            'articleDate' => date('Y-m-d H:i:s'),
+            'publisher' => "Ashley",
+            'publisherTitle' => "CEO"
+        ];
+
+        $this->Blogs->update($data);
+
+        Response::redirect('/Blogs');
+    }
 }

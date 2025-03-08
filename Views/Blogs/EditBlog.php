@@ -14,8 +14,8 @@
   <div class="mx-auto max-w-2xl text-center">
     <h2 class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">Edit Blog</h2>
   </div>
-  <form action="/Blogs/Delete/<?= $blog['id'] ?>" method="POST" class="mx-auto mt-10 max-w-xl sm:mt-10">
-
+  <form action="/Blogs" method="POST" class="mx-auto mt-10 max-w-xl sm:mt-10">
+    <input type="hidden" name="id" value="<?= $blog['id'] ?>">
     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
       <div class="sm:col-span-2">
         <label for="Title" class="block text-sm/6 font-semibold text-gray-900">Title</label>
@@ -45,10 +45,14 @@
         </div>
       </div>
     </div>
-    <div class="flex mt-5 flex justify-center gap-x-8">
+ <div class="flex mt-5 flex justify-center gap-x-8">
       <button type="submit" class="w-45 rounded-md bg-green-700 px-3.5 py-2.5 text-center text-l font-semibold text-white shadow-xs hover:bg-green-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700">Edit</button>
-      <button type="submit" class="w-45 rounded-md bg-red-700 px-3.5 py-2.5 text-center text-l font-semibold text-white shadow-xs hover:bg-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">Delete</button>
-    </div>
+      <button onclick="document.querySelector('#delete-form').submit()" type="button" class="w-45 rounded-md bg-red-700 px-3.5 py-2.5 text-center text-l font-semibold text-white shadow-xs hover:bg-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">Delete</button>
+    </div>   
   </form>
+  <form id="delete-form" action="/Blogs/Delete" method="POST" class="hidden">
+    <input type="hidden" name="id" value="<?= $blog['id'] ?>">
+  </form>
+
 </div>
 <?php require '../Views/partials/Footer.php' ?>
