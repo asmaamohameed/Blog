@@ -4,7 +4,7 @@ namespace Blog\Model;
 
 use Blog\Database\Database;
 
-class Blogs
+class Blog
 {
     private $db;
 

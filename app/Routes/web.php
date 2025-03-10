@@ -13,8 +13,8 @@ Route::get('/Blogs', BlogController::class, 'index');
 
 Route::get('/Blogs/AddBlog', BlogController::class, 'view');
 
-Route::post('/Blogs/Create', BlogController::class, 'create');
+Route::post('/Blogs/Create', BlogController::class, 'store');
 Route::post('/Blogs/Delete', BlogController::class, 'delete');
 
-Route::get('/Blogs/EditBlog', BlogController::class, 'edit');
+Route::get('/Blogs/EditBlog', BlogController::class, 'create');
 Route::post('/Blogs', BlogController::class, 'update');

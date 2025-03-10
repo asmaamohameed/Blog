@@ -2,7 +2,7 @@
 
 namespace Blog\Controller;
 
-use Blog\Model\Blogs;
+use Blog\Model\Blog;
 use Blog\Http\Response;
 
 class BlogController
@@ -10,7 +10,7 @@ class BlogController
     private $Blogs;
     public function __construct()
     {
-        $this->Blogs = new Blogs();
+        $this->Blogs = new Blog();
     }
     public function index()
     {
@@ -22,13 +22,13 @@ class BlogController
     {
         view('Blogs/AddBlog', []);
     }
-    public function edit()
+    public function create()
     {
         $blog = $this->Blogs->getOne();
 
         view('Blogs/EditBlog', ['blog' => $blog]);
     }
-    public function create()
+    public function store()
     {
         $data = [
             'title' => $_POST['title'],
