@@ -3,6 +3,7 @@
 namespace Blog\Database;
 
 use App\Config\Config;
+use Exception;
 use PDO;
 use PDOException;
 
@@ -19,7 +20,7 @@ class Database
             $this->pdo = new PDO($dsn, Config::get('DB_USER'), Config::get('DB_PASS'), [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
 
         } catch (PDOException $e) {
-            die("Database Connection Failed: " . $e->getMessage());
+            throw new Exception($e->getMessage());
         }
     }
 
