@@ -13,7 +13,7 @@ class Blog
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public function getAll()
+    public function getAll(): array
     {
         $stmt = $this->db->query('SELECT * FROM articles');
         return $stmt->fetchAll();

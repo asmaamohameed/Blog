@@ -30,6 +30,7 @@ class BlogController
     }
     public function store()
     {
+
         $data = [
             'title' => $_POST['title'],
             'category' => $_POST['category'],
