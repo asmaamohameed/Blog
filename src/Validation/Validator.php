@@ -21,13 +21,13 @@ class Validator
     {
         $this->map = [
             'required' => new RequiredRule(),
-            // 'unique' => new UniqueRule(),
+            'unique' => new UniqueRule(),
             // 'confirmed' => new ConfirmedRule(),
             'email' => new EmailRule(),
             'min' => new MinRule(),
             'max' => new MaxRule(),
             'numeric' => new NumericRule(),
-            'AlphaNumirec' => new AlphaNumirecRule(),
+            'alphaNumirec' => new AlphaNumirecRule(),
         ];
     }
     public function setRules(array $rules)
@@ -51,7 +51,7 @@ class Validator
                     throw new \Exception("Rule {$ruleName} is not supported");
                 }
 
-                $vaild = $ruleInstance->apply($field, $data[$field], $ruleValue);
+                $vaild = $ruleInstance->apply($field, trim($data[$field]), $ruleValue);
 
                 if (!$vaild) {
                     $this->errors[$field][] = str_replace([':attribute', ':data'], [$field, $ruleValue], $ruleInstance->message());

@@ -1,4 +1,4 @@
-<?php require '../Views/partials/Navbar.php'?>
+<?php require '../Views/partials/Navbar.php' ?>
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -7,12 +7,15 @@
   </div>
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
+    <form class="space-y-6" action="login" method="POST">
       <div>
         <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
         <div class="mt-2">
-          <input type="email" name="email" id="email" autocomplete="email" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          <input type="email" value="<?= isset($old['email']) ? htmlspecialchars($old['email']) : ''?>" name="email" id="email" autocomplete="email" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border-2 -outline-offset-1 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
         </div>
+        <?php if (!empty($errors['email'])): ?>
+          <p class="text-red-500 text-sm/6"><?= $errors['email']; ?></p>
+        <?php endif; ?>
       </div>
 
       <div>
@@ -23,8 +26,11 @@
           </div>
         </div>
         <div class="mt-2">
-          <input type="password" name="password" id="password" autocomplete="current-password" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+          <input type="password" value="<?= isset($old['password']) ? htmlspecialchars($old['password']) : ''?>" name="password" id="password" autocomplete="current-password" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border-2 -outline-offset-1 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
         </div>
+        <?php if (!empty($errors['password'])): ?>
+          <p class="text-red-500 text-sm/6"><?= $errors['password']; ?></p>
+        <?php endif; ?>
       </div>
 
       <div>
@@ -34,4 +40,4 @@
   </div>
 </div>
 
-<?php require '../Views/partials/Footer.php'?>
+<?php require '../Views/partials/Footer.php' ?>

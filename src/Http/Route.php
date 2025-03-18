@@ -61,7 +61,7 @@ class Route
 
             $controllerInstance->$action();
         } else {
-            $this->response->statusCode(404);
+            Response::statusCode(404);
             view(view: 'errors/404');
         }
     }

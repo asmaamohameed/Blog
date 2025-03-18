@@ -20,13 +20,16 @@
       <div class="sm:col-span-2">
         <label for="Title" class="block text-sm/6 font-semibold text-gray-900">Title</label>
         <div class="mt-1.5">
-          <input type="text" value="<?= $blog['title'] ?>" name="title" id="title" autocomplete="organization" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+          <input type="text" value="<?= $blog['title'] ?>" name="title" id="title" autocomplete="organization" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 border-2 -outline-offset-1 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
         </div>
+        <?php if (!empty($errors['title'])): ?>
+          <p class="text-red-500 text-sm/6"><?= $errors['title'][0]; ?></p>
+        <?php endif; ?>
       </div>
       <div class="sm:col-span-2">
         <label for="category" class="block text-sm/6 font-semibold text-gray-900">Category</label>
         <div class="mt-1.5">
-          <div class="rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+          <div class="rounded-md bg-white border-2 -outline-offset-1 border-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
             <div class="grid shrink-0 grid-cols- focus-within:relative">
               <select id="category" name="category" autocomplete="category" aria-placeholder="Category" aria-label="category" class="col-start-1 row-start-1 w-full appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                 <option><?= $blog['category'] ?></option>
@@ -41,14 +44,17 @@
       <div class="sm:col-span-2">
         <label for="article" class="block text-sm/6 font-semibold text-gray-900">Article</label>
         <div class="mt-1.5">
-          <textarea name="article" id="article" rows="4" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"><?= $blog['article'] ?></textarea>
+          <textarea name="article" id="article" rows="4" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 border-2 -outline-offset-1 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"><?= $blog['article'] ?></textarea>
         </div>
+        <?php if (!empty($errors['article'])): ?>
+          <p class="text-red-500 text-sm/6"><?= $errors['article'][0]; ?></p>
+        <?php endif; ?>
       </div>
     </div>
- <div class="flex mt-5 flex justify-center gap-x-8">
-      <button type="submit" class="w-45 rounded-md bg-green-700 px-3.5 py-2.5 text-center text-l font-semibold text-white shadow-xs hover:bg-green-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700">Edit</button>
-      <button onclick="document.querySelector('#delete-form').submit()" type="button" class="w-45 rounded-md bg-red-700 px-3.5 py-2.5 text-center text-l font-semibold text-white shadow-xs hover:bg-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">Delete</button>
-    </div>   
+    <div class="flex mt-5 flex justify-center gap-x-8">
+      <button type="submit" class="w-[20%] rounded-md bg-green-700 px-3.5 py-2.5 text-center text-l font-semibold text-white shadow-xs hover:bg-green-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700">Edit</button>
+      <button onclick="document.querySelector('#delete-form').submit()" type="button" class="w-[20%] rounded-md bg-red-700 px-3.5 py-2.5 text-center text-l font-semibold text-white shadow-xs hover:bg-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">Delete</button>
+    </div>
   </form>
   <form id="delete-form" action="/Blogs/Delete" method="POST" class="hidden">
     <input type="hidden" name="id" value="<?= $blog['id'] ?>">

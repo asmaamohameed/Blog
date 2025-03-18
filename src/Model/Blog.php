@@ -18,18 +18,24 @@ class Blog
         $stmt = $this->db->query('SELECT * FROM articles');
         return $stmt->fetchAll();
     }
+    public function getForUser($id)
+    {
+        $stmt = $this->db->prepare('SELECT * FROM articles WHERE user_id = :id');
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetchAll();
+    }
 
-    public function getOne()
+    public function getOne($id)
     {
         $stmt = $this->db->prepare('SELECT * FROM articles WHERE id = :id');
-        $stmt->execute(['id' => $_GET['id']]);
+        $stmt->execute(['id' => $id]);
         return $stmt->fetch();
     }
 
     public function create($data)
     {
-        $stmt = $this->db->prepare("INSERT INTO articles (title, category, article, articleDate, publisher, publisherTitle)
-                                    VALUES (:title, :category, :article, :articleDate, :publisher, :publisherTitle)");
+        $stmt = $this->db->prepare("INSERT INTO articles (user_id, title, category, article, articleDate, publisher, publisherTitle)
+                                    VALUES (:user_id, :title, :category, :article, :articleDate, :publisher, :publisherTitle)");
         $stmt->execute($data);
         return $this->db->lastInsertId();
     }
