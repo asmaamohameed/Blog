@@ -2,6 +2,7 @@
 
 namespace Blog\Controller\Auth;
 
+use App\Middleware\CSRF;
 use Blog\Http\Response;
 use Blog\Model\User;
 use Blog\Validation\Validator;
@@ -26,8 +27,9 @@ class AuthController
 
     public function register()
     {
-        $validate = new Validator();
+        CSRF::verify($_POST['csrf_token']);
 
+        $validate = new Validator();
         $validate->setRules([
             'name' => 'required|min:3|max:255',
             'email' => 'required|email|unique',
@@ -53,6 +55,8 @@ class AuthController
 
     public function login()
     {
+        CSRF::verify($_POST['csrf_token']);
+
         $validate = new Validator();
         $validate->setRules([
             'email' => 'required|email',
@@ -64,6 +68,7 @@ class AuthController
             view('Auth/Login', ['errors' => $errors, 'old' => $_POST]);
             return;
         }
+
 
         $user = $this->User->emailExists(email: $_POST['email']);
 
