@@ -1,19 +1,14 @@
 <?php
 
+session_start();
 
 require_once '../vendor/autoload.php';
 require_once '../app/Routes/web.php';
+require_once '../app/Middleware/Middleware.php';
 
 use Blog\Application;
-use Blog\Http\Route;
-use Blog\Database\Database;
 
 $app = new Application();
 
 $app->run();
 
-// $db = Database::getInstance()->getConnection();
-
-
-
-// dd($db->query('SELECT * FROM articals')->fetchAll());
