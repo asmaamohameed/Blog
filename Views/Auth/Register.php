@@ -8,6 +8,7 @@
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form class="space-y-6" action="/register" method="POST">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
             <div>
                 <label for="name" class="block text-sm/6 font-medium text-gray-900">Name</label>
                 <div class="mt-2">

@@ -15,6 +15,7 @@
     <h2 class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">Edit Blog</h2>
   </div>
   <form action="/Blogs" method="POST" class="mx-auto mt-10 max-w-xl sm:mt-10">
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
     <input type="hidden" name="id" value="<?= $blog['id'] ?>">
     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
       <div class="sm:col-span-2">

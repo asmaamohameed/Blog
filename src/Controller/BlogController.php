@@ -7,6 +7,7 @@ use Blog\Http\Response;
 use Blog\Validation\Validator;
 use App\Middleware\Auth;
 use App\Middleware\BlogOwner;
+use App\Middleware\CSRF;
 
 class BlogController
 {
@@ -36,8 +37,9 @@ class BlogController
     }
     public function store()
     {
-        $validate = new Validator();
+        CSRF::verify($_POST['csrf_token']);
 
+        $validate = new Validator();
         $validate->setRules([
             'title' => 'required|min:3|max:255',
             'article' => 'required|min:10|max:1000',
@@ -71,8 +73,9 @@ class BlogController
     }
     public function update()
     {
+        CSRF::verify($_POST['csrf_token']);
+        
         $validate = new Validator();
-
         $validate->setRules([
             'title' => 'required|min:3|max:255',
             'article' => 'required|min:10|max:1000',

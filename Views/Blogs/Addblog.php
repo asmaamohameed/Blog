@@ -11,12 +11,12 @@
   </div>
 </div> -->
   <form action="/Blogs/AddBlog" method="POST" class="mx-auto mt-10 max-w-xl sm:mt-10">
-
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
       <div class="sm:col-span-2">
         <label for="Title" class="block text-sm/6 font-semibold text-gray-900">Title</label>
         <div class="mt-1.5">
-          <input type="text" value="<?= isset($old['title']) ? htmlspecialchars($old['title']) : ''?>" name="title" id="title" autocomplete="organization" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 border-2 -outline-offset-1 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+          <input type="text" value="<?= isset($old['title']) ? htmlspecialchars($old['title']) : '' ?>" name="title" id="title" autocomplete="organization" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 border-2 -outline-offset-1 border-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
         </div>
         <?php if (!empty($errors['title'])): ?>
           <p class="text-red-500 text-sm/6"><?= $errors['title'][0]; ?></p>
